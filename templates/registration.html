@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body class="auth-page">
+    <div class="card auth-form simple-auth">
+        <h1>Регистрация</h1>
+        <form method="post">
+            {% csrf_token %}
+            <p>
+                <input type="text" name="username" placeholder="Имя" required>
+            </p>
+            <p>
+                <input type="email" name="email" placeholder="Почта" required>
+            </p>
+            <p>
+                <input type="password" name="password" placeholder="Пароль" required>
+            </p>
+            <button class="btn" type="submit">Создать</button>
+        </form>
+        <p class="auth-link">
+            <a href="{% url 'login' %}">Вход</a>
+        </p>
+    </div>
+</body>
+</html>
